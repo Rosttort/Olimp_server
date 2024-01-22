@@ -46,6 +46,8 @@ router.post('/registration_reply',
     body('author_answers'),
     body('answers'),
     body('marks'),
+    body('score'),
+    body('team'),
     replyController.registration_reply
 );
 router.post('/reg_comand_on_olimp', body('command'), body('olimp'), olimpController.RegComandOnOlimp);
@@ -60,7 +62,7 @@ router.get('/refresh', userController.refresh);
 router.post('/teams', body('trainer'), teamController.getTeamsByTrainer);
 router.post('/teams_member', body('member'), teamController.getTeamsByMember);
 router.post('/exercise_olimp', body('olimp'), exerciseController.getExerciseByOlimp);
-router.post('/olimp_reply', body('olimp'), body('check'), replyController.getReplyByOlimp);
+router.post('/olimp_reply', body('olimp'), replyController.getReplyByOlimp);
 router.post('/olimp_member_reply', body('olimp'), body('member'), replyController.getReplyByOlimpMember);
 router.get('/users', authMiddleware, userController.getUsers);
 router.post('/team_olimp', body('team'), olimpController.getOlimpByTeam);

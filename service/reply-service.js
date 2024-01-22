@@ -6,16 +6,16 @@ const ApiError = require('../exceptions/api-error');
 var mongoose = require('mongoose');
 
 class ReplyService{
-    async registration_reply(member, olimp, conditions, author_answers, answers, marks) {
+    async registration_reply(member, olimp, conditions, author_answers, answers, marks, score, team) {
         const check = false;
-        const reply = await ReplyModel.create({member, olimp, conditions, author_answers, answers, marks, check})
+        const reply = await ReplyModel.create({member, olimp, conditions, author_answers, answers, marks, check, score, team})
         const replyDto = new ReplyDto(reply);
 
         return {reply: replyDto}
     }
     
-    async getReplyByOlimp(olimp1, check1) {
-        const reply = await ReplyModel.find({olimp: olimp1, check: check1});
+    async getReplyByOlimp(olimp1) {
+        const reply = await ReplyModel.find({olimp: olimp1});
         return reply;
     }
 

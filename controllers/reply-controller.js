@@ -3,8 +3,8 @@ const replyService = require('../service/reply-service');
 class ReplyController{
     async registration_reply(req, res, next) {
         try {
-            const {member, olimp, conditions, author_answers, answers, marks} = req.body;
-            const replyData = await replyService.registration_reply(member, olimp, conditions, author_answers, answers, marks);
+            const {member, olimp, conditions, author_answers, answers, marks, score, team} = req.body;
+            const replyData = await replyService.registration_reply(member, olimp, conditions, author_answers, answers, marks, score, team);
             return res.json(replyData);
         } catch (e) {
             next(e);
@@ -13,8 +13,8 @@ class ReplyController{
 
     async getReplyByOlimp(req, res, next) {
         try {
-            const {olimp, check} = req.body;
-            const reply = await replyService.getReplyByOlimp(olimp, check);
+            const {olimp} = req.body;
+            const reply = await replyService.getReplyByOlimp(olimp);
             return res.json(reply);
         } catch (e) {
             next(e);

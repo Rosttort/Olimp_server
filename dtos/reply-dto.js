@@ -6,6 +6,8 @@ module.exports = class ReplyDto {
     answers;
     marks;
     check;
+    score;
+    team;
 
     constructor(model) {
         this.member = model.member;
@@ -15,5 +17,7 @@ module.exports = class ReplyDto {
         this.answers = model.answers;
         this.marks = model.marks;
         this.check = model.check;
+        this.score = model.score;
+        this.team = model.team;
     }   
 }
